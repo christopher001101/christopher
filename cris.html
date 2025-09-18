@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício de Variáveis - Cantina</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .step {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background-color: #f9f9f9;
+        }
+        .step h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .code-block {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        .output {
+            background-color: #f1c40f;
+            color: #34495e;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .error {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .success {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .test-area {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .explanation {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exercício de Variáveis em JavaScript</h1>
+        
+        <div class="step">
+            <h2>Passo 1 – Declarando variáveis</h2>
+            <div class="code-block">
+                // Usando var para declarar o nome da cantina<br>
+                var nomeCantina = "Cantina da Escola";<br>
+                console.log("Bem-vindo à " + nomeCantina);<br><br>
+                
+                // Usando let para declarar a quantidade de salgados<br>
+                let salgados = 20;<br>
+                console.log("Temos " + salgados + " salgados disponíveis.");<br><br>
+                
+                // Usando const para declarar o preço fixo<br>
+                const precoSalgado = 5;<br>
+                console.log("Cada salgado custa R$" + precoSalgado);
+            </div>
+            <button onclick="step1()">Executar Passo 1</button>
+            <div id="output1" class="output">Saída aparecerá aqui...</div>
+        </div>
+        
+        <div class="step">
+            <h2>Passo 2 – Atualizando valores</h2>
+            <p>Agora, imagine que 5 salgados foram vendidos.</p>
+            <div class="code-block">
+                // Atualizando o número de salgados<br>
+                salgados = salgados - 5;<br>
+                let totalVendido = 5 * precoSalgado;<br><br>
+                
+                console.log("Agora restam " + salgados + " salgados.");<br>
+                console.log("A cantina vendeu R$" + totalVendido);
+            </div>
+            <button onclick="step2()">Executar Passo 2</button>
+            <div id="output2" class="output">Saída aparecerá aqui...</div>
+        </div>
+        
+        <div class="step">
+            <h2>Passo 3 – Teste rápido</h2>
+            
+            <div class="test-area">
+                <h3>Teste 1: Tentar mudar o valor de precoSalgado</h3>
+                <div class="code-block">
+                    precoSalgado = 6; // Isso deve causar um erro
+                </div>
+                <button onclick="test1()">Executar Teste 1</button>
+                <div id="output3" class="output">Resultado aparecerá aqui...</div>
+            </div>
+            
+            <div class="test-area">
+                <h3>Teste 2: Variáveis com var e let dentro de blocos</h3>
+                <div class="code-block">
+                    if (true) {<br>
+                    &nbsp;&nbsp;var testeVar = "Sou var"; <br>
+                    &nbsp;&nbsp;let testeLet = "Sou let"; <br>
+                    &nbsp;&nbsp;console.log(testeVar); // funciona <br>
+                    &nbsp;&nbsp;console.log(testeLet); // funciona<br>
+                    } <br>
+                    console.log(testeVar); // funciona fora do bloco?<br>
+                    console.log(testeLet); // funciona fora do bloco?
+                </div>
+                <button onclick="test2()">Executar Teste 2</button>
+                <div id="output4" class="output">Resultado aparecerá aqui...</div>
+            </div>
+        </div>
+        
+        <div class="explanation">
+            <h2>Objetivo do exercício</h2>
+            <ul>
+                <li>Entender que <code>var</code> é global e pode causar problemas.</li>
+                <li><code>let</code> pode mudar e respeita o escopo do bloco.</li>
+                <li><code>const</code> é constante e não pode ser alterado.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Declaração das variáveis (Passo 1)
+        var nomeCantina = "Cantina da Escola";
+        let salgados = 20;
+        const precoSalgado = 5;
+        
+        function step1() {
+            const output = document.getElementById('output1');
+            output.innerHTML = '';
+            
+            // Simulando console.log
+            output.innerHTML += "Bem-vindo à " + nomeCantina + "<br>";
+            output.innerHTML += "Temos " + salgados + " salgados disponíveis.<br>";
+            output.innerHTML += "Cada salgado custa R$" + precoSalgado + "<br>";
+        }
+        
+        function step2() {
+            const output = document.getElementById('output2');
+            output.innerHTML = '';
+            
+            // Atualizando valores (Passo 2)
+            salgados = salgados - 5;
+            let totalVendido = 5 * precoSalgado;
+            
+            output.innerHTML += "Agora restam " + salgados + " salgados.<br>";
+            output.innerHTML += "A cantina vendeu R$" + totalVendido + "<br>";
+        }
+        
+        function test1() {
+            const output = document.getElementById('output3');
+            output.innerHTML = '';
+            
+            try {
+                precoSalgado = 6; // Isso deve causar um erro
+                output.innerHTML += "<span class='success'>Valor alterado com sucesso!</span>";
+            } catch (error) {
+                output.innerHTML += "<span class='error'>Erro: " + error.message + "</span><br>";
+                output.innerHTML += "Isso acontece porque precoSalgado foi declarado com <strong>const</strong> e não pode ser reatribuído.";
+            }
+        }
+        
+        function test2() {
+            const output = document.getElementById('output4');
+            output.innerHTML = '';
+            
+            if (true) {
+                var testeVar = "Sou var"; 
+                let testeLet = "Sou let"; 
+                output.innerHTML += "Dentro do bloco:<br>";
+                output.innerHTML += "testeVar: " + testeVar + "<br>";
+                output.innerHTML += "testeLet: " + testeLet + "<br><br>";
+            } 
+            
+            output.innerHTML += "Fora do bloco:<br>";
+            
+            // Testando se as variáveis estão acessíveis fora do bloco
+            try {
+                output.innerHTML += "testeVar: " + testeVar + "<br>";
+            } catch (error) {
+                output.innerHTML += "<span class='error'>testeVar: " + error.message + "</span><br>";
+            }
+            
+            try {
+                output.innerHTML += "testeLet: " + testeLet + "<br>";
+            } catch (error) {
+                output.innerHTML += "<span class='error'>testeLet: " + error.message + "</span><br>";
+            }
+            
+            output.innerHTML += "<br>Isso demonstra que <strong>var</strong> não respeita o escopo de bloco, enquanto <strong>let</strong> respeita.";
+        }
+    </script>
+</body>
+</html>
